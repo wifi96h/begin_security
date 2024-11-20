@@ -1,0 +1,111 @@
+192.168.28.96/27 network has the ability to communicate with the 192.168.150.224/27 network.
+Scan target networks to gather pertinent host information.
+
+>Jump Box
+->Network scan: 192.168.28.96/27
+-->Network scan:192.168.150.224/27
+
+
+Target Section:
+
+Network scans:
+Network: 192.168.28.96/27
+
+Network:192.168.150.224/27
+
+OSs: unknown
+Creds: student ::
+Known Ports: unknown
+Known URL: consulting.site.donovia
+Known URL: conference.site.donovia
+Action:  collect intelligence and identify possible avenues of approach in the network.
+=====================================================================================
+ftp--
+
+File Transfer Protocol (FTP) appears to be available within Donovian Cyberspace. Perform further reconnaissance and interrogate this service to identify the flag.
+
+Your flag will be a unique string of twenty random characters.
+
+ proxychains nc 192.168.28.105 21
+
+proxychains wget -r ftp://192.168.28.105
+    Logging in as anonymous ... Logged in!
+
+proxychains ftp 192.168.28.105 
+    Name (192.168.28.105:student): anonymous
+ help
+Commands may be abbreviated.  Commands are:
+
+!		dir		mdelete		qc		site
+$		disconnect	mdir		sendport	size
+account		exit		mget		put		status
+append		form		mkdir		pwd		struct
+ascii		get		mls		quit		system
+bell		glob		mode		quote		sunique
+binary		hash		modtime		recv		tenex
+bye		help		mput		reget		tick
+case		idle		newer		rstatus		trace
+cd		image		nmap		rhelp		type
+cdup		ipany		nlist		rename		user
+chmod		ipv4		ntrans		reset		umask
+close		ipv6		open		restart		verbose
+cr		lcd		prompt		rmdir		?
+delete		ls		passive		runique
+debug		macdef		proxy		send
+
+
+
+
+---------------------------------------------------------------------------
+
+Key Speaker--
+
+Intelligence shows that the Donovian Government is preparing for a conference, you have been tasked to collect all information relating to the speakers.
+
+Identify the key individual to find the flag
+
+Your flag will be a unique string of twenty random characters.
+
+-----------------------------
+
+STRONG tags
+
+There is some STRONG text within the Donovian Conference News that needs to be collected. It will provide the flag to our operations.
+
+Your flag will be a unique string of twenty random characters.
+right click element 
+ctrl f strong 
+f1rstpArt@<strong>i4BT2
+-------------------------------------------
+
+Contact Info--
+
+Intelligence suggests that the Donovian Consulting Group appears to have sensitive contacts available on their public facing site. Scrape the data and piece together the flag.
+
+Your flag will be a unique string of twenty random characters.
+justoeumetus
+----------------------------------------------------
+
+Company Article--
+
+A company has posted an article to Donovian Consulting Groups blog, Identify the flag associated with the company.
+
+Your flag will be a unique string of twenty random characters.
+
+---------------------------------------------------------------------
+
+SMB--
+
+Your team has received intelligence related to Server Message Block being available. Identify the host and associated flag.
+
+Your flag will be a unique string of twenty random characters.
+You will need to gain initial access to a system in 192.168.28.96/27 subnet utilizing passwords gathered through recon.
+--script
+
+----------------------------------------------------------
+
+TITLE tags-- 
+
+Find the Titles of all the hosted web servers, and identify the flag.
+
+Your flag will be a unique string of twenty random characters.
