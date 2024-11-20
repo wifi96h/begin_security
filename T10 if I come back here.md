@@ -74,6 +74,10 @@ recreate a target system in a local network to test exploits
 # Scanning and Reconnaissance #
 
 
+Documentation
+Why is it important?
+What should we include in documentation?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEFT OFF HERE ^^^^^^^^^^^^^^^^^^^^^^^^^^^ https://sec.cybbh.io/-/public/-/jobs/875707/artifacts/slides/02-network-scanning-and-recon.html
 
 
 
