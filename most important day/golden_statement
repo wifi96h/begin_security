@@ -1,0 +1,104 @@
+UNION SELECT table_schema, table_name,column_name FROM information_schema.columns 
+syntax to use and change for my querries 
+ info i want :: table_schema, table_name,column_name
+  information_schema.columns :: where to get it 
+
+                      NOTES
+------------------------------------------------
+databases (contain tables)
+  tables are like separte documents (which document you want to search) (which contain columns) 
+    columns are like ABCDEFG at the top of an excel document (contain fields)
+------------------------------------------------
+
+
+
+login / ssh to sql server 
+
+input this command 
+mysql 
+logs you in 
+
+input this command  
+show databases ; 
+------------------------------------
+        (output) 
+        DATABASE
+        information_schema
+        mysql
+        performance
+        session *(user created)*
+        (output)
+----------------------------------
+
+generally we want information_schema 
+
+*input this command 
+    use information_schema 
+
+(output) 
+database changed
+(output)
+
+*input this command
+    show tables from information_schema 
+
+(output) 
+tables_in_information_schema
+x
+y 
+z
+(output) 
+
+*input this command
+    show columns from x 
+        *(shows the columns in the table columns)*
+
+(output) 
+field           type       null       key       default       extra
+--------------------------------------------------------------------
+f_G             varchar    no
+g_H             longtext   yes                  null
+h_I             biginit    no                   0
+(output) 
+
+
+*input this command
+  select f_G from information_schema.columns ;
+
+(output) 
+values in f_G
+(output)    
+
+*input this command
+   select g_H from information_schema.columns ;
+
+
+(output) 
+values in f_G
+(output)    
+
+*input this command
+  select column_name from information_schema.columns ;
+
+(output) 
+the name of the columns 
+(output)   
+
+*input this command 
+  UNION SELECT table_schema, table_name,column_name FROM information_schema.columns 
+
+(output) 
+shows you the full thing all of the above put together 
+**(which you then query for data)**
+(output)   
+
+
+                      NOTES
+------------------------------------------------
+databases (contain tables)
+  tables are like separte documents (which document you want to search) (which contain columns) 
+    columns are like ABCDEFG at the top of an excel document (contain fields)
+      
+
+
+
