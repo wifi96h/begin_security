@@ -1,0 +1,6 @@
+ssh to jumpbox 
+pingsweep the new network
+build dynamic to jump box :: ssh -S /tmp/jump jump -O forward -D 9050
+scan hosts and network and banner grab 
+
+proxychains nmap --script http-enum 10.100.28.55
