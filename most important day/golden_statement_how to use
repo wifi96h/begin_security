@@ -1,4 +1,7 @@
+                 golden
 UNION SELECT table_schema, table_name,column_name FROM information_schema.columns 
+             ^column^      ^column^   ^column^          ^database^         ^table^
+
 syntax to use and change for my querries 
  info i want :: table_schema, table_name,column_name
   information_schema.columns :: where to get it 
