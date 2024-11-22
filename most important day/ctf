@@ -1,1 +1,13 @@
+master socket to jump box
 
+dynamic tunnel 
+ssh -S /tmp/jump jump -O forward -D 9050
+
+proxychains nmap 
+80/tcp   open  http
+4444/tcp open  krb524
+
+proxychains nc 10.100.28.48 80 http 
+proxychains nc 10.100.28.48 4444 ssh 
+
+proxychains nmap --script=http-enum.nse 10.100.28.48
