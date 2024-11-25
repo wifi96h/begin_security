@@ -227,7 +227,7 @@ ssh -MS /tmp/t2 creds@127.0.0.1 -p 2323
 OPS STATION--
 ssh -S /tmp/jump jump -O forward -D 9050
 
-proxychains --script=http-enum.nse 192.168.28.100
+proxychains nmap --script=http-enum.nse 192.168.28.100
 
 firefox 
 127.0.0.1:1111/admin/login.php
