@@ -1,0 +1,72 @@
+                  # Reverse Engineering / ctf #
+
+X86_64 Assembly - Common Instruction Pointers
+read these as command then right to left 
+PUSH // POP == change the stack pointer pop 1 lower push 1 higher by bit size ie ip eip 
+
+ADD: Add source to destination :: make sure to say store the new value 
+
+
+X86_64 Assembly - Common Terms
+
+HEAP
+Memory that can be allocated and deallocated
+
+STACK
+A contiguous section of memory used for passing arguments
+
+GENERAL REGISTER
+A multipurpose register that can be used by either programmer or user to store data or a memory location address
+
+CONTROL REGISTER
+A processor register that changes or controls the behavior of a CPU
+
+FLAGS REGISTER
+Contains the current state of the processor
+
+---------------------------------------------------------------------------
+# Instruction Pointers; holds address for next instruction to be executed
+			
+RIP 64-Bit Instruction Pointer
+
+EIP Lower 32 bits Instruction Pointer
+
+IP Lower 16 bits Instruction Pointer
+----------------------------------------------------------------------------
+
+X86_64 Assembly - Common Instruction Pointers
+MOV
+move source to destination
+
+PUSH
+push source onto stack
+
+POP
+Pop top of stack to destination
+
+INC
+Increment source by 1
+
+DEC
+Decrement source by 1
+
+ADD
+Add source to destination
+
+SUB
+Subtract source from destination
+
+CMP
+Compare 2 values by subtracting them and setting the %RFLAGS register. 
+ZeroFlag set means they are the same.
+
+JMP
+Jump to specified location :: no cmpr 
+
+JLE
+Jump if less than or equal :: if zero flag set set less than or equal 
+
+JE
+Jump if equal :: jmp if zero set to equal 
+
+
