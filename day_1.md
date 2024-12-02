@@ -1,4 +1,7 @@
 # DAY 1 #
+
+T10 if I come back here
+
 10.50.29.68 --linux ops station -- 192.168.65.20
 10.50.23.247 -- windows -- 192.168.65.10
 
