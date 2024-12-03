@@ -27,3 +27,9 @@ scp -P 1212 file.sh student@127.0.0.1:C:/users/student/desktop
 
 
 scp -P 1212 student@127.0.0.1:C:/users/student/desktop/script.sh .
+
+
+PORT     STATE SERVICE
+80/tcp   open  http
+514/tcp  open  shell
+3201/tcp open  cpq-tasksmart
