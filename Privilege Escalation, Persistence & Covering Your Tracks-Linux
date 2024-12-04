@@ -7,3 +7,7 @@ find / -file f -perm /2000 -ls 2>/dev/null
 
 both sgid and suid 
 find / -file f -perm /6000 -ls 2>/dev/null
+
+echo $PATH
+does it have a dot 
+PATH=.:/(the originial oathstatement 
