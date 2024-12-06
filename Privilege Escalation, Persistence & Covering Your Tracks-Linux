@@ -1,12 +1,12 @@
 suid bit
-find / -file f -perm /4000 -ls 2>/dev/null
+find / -type f -perm /4000 -ls 2>/dev/null
 path statement shows you where the command is looked for and excuted from 
 ./ tells the machine to excute from the home dir 
 sgid bit 
-find / -file f -perm /2000 -ls 2>/dev/null
+find / -type f -perm /2000 -ls 2>/dev/null
 
 both sgid and suid 
-find / -file f -perm /6000 -ls 2>/dev/null
+find / -type f -perm /6000 -ls 2>/dev/null
 
 echo $PATH
 does it have a dot 
