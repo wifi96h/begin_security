@@ -15,7 +15,7 @@ The current directory
 look for a scheduled task or service that we can write to the directory // or applications running from a diffrent than normal directory // public flder // downloads // users dirrectory 
 
 looking for known voulnerabilities 
-
+type services in the search bar look at all services 
 
 command to get sysinternals 
 net use z: "\\http://live.sysinternals.com" /persistent:yes
@@ -47,4 +47,7 @@ Show all audit category settings
 auditpol /get /category:*
 What does the below command show?
 auditpol /get /category:* | findstr /i "success failure"
+
+
+10.50.21.129
 
