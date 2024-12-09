@@ -108,7 +108,134 @@ Lee_Roth 	Lroth 	$4
 Aaron 	ncnffjbeqlCn$$jbeq 	$1 apasswordyPa$$word
 user2 	RntyrfVfNER78 	$2 EaglesIsARE78
 user3 	Obo4GURRnccyrf 	$3 Bob4THEEapples
+
+
+
 Lroth 	anotherpassword4THEages 	$4
 
 
 192.168.28.179
+
+
+
+
+
+
+
+===========================================================================================
+no tunnel to box 
+
+nmap -Pn -sT -T4 -- script=http.enum
+
+firefox to ip 
+
+
+open all links then get info on them 
+
+look at /etc/hosts and /etc/passwd first 
+
+www-data user2 looking for nologin and sh but not false 
+
+authetication bypass ' or 1='1 in both 
+
+rot13 and base 64 
+
+test every option evenif you find one that works for the 
+input fields look for the diffrenet one 
+pay attention to how which feild is rendered ie strings and integers 
+
+dirty ping the subnet of the ip from each box 
+
+pay attention to the documents saying if you need to test creditials / gain access/ enumerate the system 
+
+makea format like this tomorrow for the sql tabel 
+
+siteusers
+    custumer
+        id
+        name
+        ahdajfh
+    net_produ
+        jjdashf
+        jdjbvabvj
+
+
+
+
+
+10.50.35.223
+XK91Yhj3aSHUaTe
+----------------------------------------------------------------------------------------
+
+recon ping nmap nc 
+http-enum 
+open every link 
+/etc/passwd to find a users home directorty 
+command injectable 
+where that users key is 
+post and get method 
+
+if you find the sql server the credntials are there FIND THEM
+UNION SELECT ? 1,2,3 
+
+modify golden statement 
+product ? 7 or 1 
+user databases are at the bottom 
+
+graph the data base 
+test every field dont just use the first on that works 
+
+auditpol need to privledge escelate 
+crontab
+follow pids and parent pids 
+run file and strings 
+run it binary analaysis gidraha right clcick transfer to binaary 
+
+
+if x >> 4 =32 bit shifting programming mode 
+0000 0000 0000
+0000 0010 0000 this is 32
+0010 0000 0000 this is 512 
+512 bit shifted to the right 4 times is 32 
+
+if x / 4 =32 x= 32*4 
+
+-------------------------------------------------------------------------------------
+
+windows persistence 
+
+the run keys use the os feild guide 
+
+services and scheduled task if something is misconfigured Google chrome is an example
+chrome should be capitilized 
+
+dll hijacking 
+its set to automatic in the services you need to reboot
+
+------------------------------------------------------------------------------------
+
+linux persistance 
+sudo -l 
+ps -elf 
+net stat -antp 
+ls 
+use the find command from os 
+/home fror usr home dir
+suid guid commands 
+gtfo bins 
+
+======================================================================================
+
+windows exploit development 
+
+do it on th box 
+gdb steps 
+
+disass 
+go all the way down in disass 
+=====================================================================================
+
+use the full key when you do the rsa key 
+click and read all the questions 
+
+
