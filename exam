@@ -89,3 +89,13 @@ UNION SELECT user_id,user,name,password from auth_users.logins #
 192.168.28.177
 
 ssh Fpalic@127.0.0.1 -p 2222
+Birdperson 
+
+Fpalic:x:1001:1001::/home/Fpalic:/bin/sh
+
+scp -P 1212 student@127.0.0.1:home/student2/Documents/script.sh .
+/home/devops
+
+10.50.23.247 -- windows -- 192.168.65.10
+
+scp -P 1212 file.sh student@127.0.0.1:C:/users/student/desktop
