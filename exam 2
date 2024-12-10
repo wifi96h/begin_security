@@ -114,3 +114,7 @@ xfreerdp /v:127.0.0.1:1111 /u:Rsanch /p:ScaryTerry /size:1920x1000 +clipboard
 yes
 R_and_D_Win1
 
+ ssh -S /tmp/t1 t1 -O forward -L 5454:192.168.28.5:22
+C:\MsEdge\DL\
+scp -P 5454 moveup.exe Rsanch@127.0.0.1:C:C:\MsEdge\DL\
+ scp student@10.50.29.68:/home/student/Downloads/moveup.exe 
