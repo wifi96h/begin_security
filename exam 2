@@ -93,6 +93,16 @@ nothing
 ssh -S /tmp/t1 t1 -O forward -L 1111:192.168.28.5:3389 -L 1112:192.168.28.10:22 -L2222:192.168.28.19:22
 
 
+Msmith  Squanchy 
+ Fpalic Birdperson  
+Kmichae  MrMeeseeks 
+Rsanch ScaryTerry
 
+ B12c3b34f
 
-
+ssh openupthedoor@127.0.0.1 -p 1112
+no dice 
+ssh Msmith@127.0.0.1 -p 1112
+nope
+ssh Kmichae@127.0.0.1 -p 1112
+yes
