@@ -121,3 +121,5 @@ scp -P 5454 moveup.exe Rsanch@127.0.0.1:C:C:\MsEdge\DL\
 
 rename 
 
+auditpol /get /category:* |findstr /i "success failure"
+
