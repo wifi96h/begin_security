@@ -118,3 +118,6 @@ R_and_D_Win1
 C:\MsEdge\DL\
 scp -P 5454 moveup.exe Rsanch@127.0.0.1:C:C:\MsEdge\DL\
  scp student@10.50.29.68:/home/student/Downloads/moveup.exe 
+
+rename 
+
