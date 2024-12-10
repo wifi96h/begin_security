@@ -61,7 +61,7 @@ ssh -MS /tmp/t1 www-data@10.50.28.159
 for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done
 ssh -S /tmp/t1 t1 -O forward -D 9050
 
-192.168.28.5: 
+192.168.28.5: R_and_D_Win1
 22/tcp    open  ssh
 135/tcp   open  msrpc
 139/tcp   open  netbios-ssn
@@ -84,7 +84,7 @@ ssh -S /tmp/t1 t1 -O forward -D 9050
 192.168.28.10: R_and_D_Nix2
 22/tcp open  ssh
 
-192.168.28.19:
+192.168.28.19: R_and_D_Nix1
 22/tcp open  ssh
 
 192.168.28.30
@@ -112,5 +112,5 @@ User Kmichae may run the following commands on r-and-d-nix2-16:
 
 xfreerdp /v:127.0.0.1:1111 /u:Rsanch /p:ScaryTerry /size:1920x1000 +clipboard
 yes
-
+R_and_D_Win1
 
